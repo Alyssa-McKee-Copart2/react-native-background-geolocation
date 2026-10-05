@@ -13,7 +13,8 @@
 #import "RCTBridgeModule.h"
 #endif
 #import "MAURProviderDelegate.h"
+#import "MAURPostLocationTask.h"
 
-@interface RCTBackgroundGeolocation : NSObject <RCTBridgeModule, MAURProviderDelegate, UNUserNotificationCenterDelegate>
+@interface RCTBackgroundGeolocation : NSObject <RCTBridgeModule, MAURProviderDelegate, MAURPostLocationTaskDelegate, UNUserNotificationCenterDelegate>
 
 @end

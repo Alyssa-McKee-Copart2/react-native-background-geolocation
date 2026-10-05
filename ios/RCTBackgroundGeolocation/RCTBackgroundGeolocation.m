@@ -376,13 +376,11 @@ RCT_EXPORT_METHOD(forceSync:(RCTResponseSenderBlock)success failure:(RCTResponse
 - (void) onAbortRequested
 {
     RCTLogInfo(@"RCTBackgroundGeoLocation abort requested by the server");
-    
+
     if (_bridge)
     {
         [self sendEvent:@"abort_requested"];
-    }
-    else
-    {
+    } else {
         [facade stop:nil];
     }
 }
@@ -394,6 +392,8 @@ RCT_EXPORT_METHOD(forceSync:(RCTResponseSenderBlock)success failure:(RCTResponse
     if (_bridge)
     {
         [self sendEvent:@"http_authorization"];
+    } else {
+        [facade stop:nil];
     }
 }
 
@@ -435,9 +435,7 @@ RCT_EXPORT_METHOD(forceSync:(RCTResponseSenderBlock)success failure:(RCTResponse
         [prevNotificationDelegate userNotificationCenter:center willPresentNotification:notification withCompletionHandler:^(UNNotificationPresentationOptions options) {
             completionHandler(UNNotificationPresentationOptionAlert);
         }];
-    }
-    else
-    {
+    } else {
         completionHandler(UNNotificationPresentationOptionAlert);
     }
 }
